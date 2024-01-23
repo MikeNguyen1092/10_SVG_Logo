@@ -10,7 +10,7 @@ let init = async () => {
 			{
 				type: `input`,
 				message: `Please inter up to 3 letters`,
-				name: `letters`,
+				name: `text`,
 			},
 			{
 				type: `input`,
@@ -30,7 +30,11 @@ let init = async () => {
 			},
 		]);
 		// run this function when the responses are done.
-		await writeToFile(responses);
+		if(responses.text.length > 3){
+			return console.log(`Please only enter up to 3 letters`);
+		} else {
+			await writeToFile(responses);
+		}
 	} catch (error) {
 		console.log(error, `Error`);
 	}
