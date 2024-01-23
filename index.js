@@ -1,3 +1,4 @@
+const getShape = require(`./lib/shapes`);
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -28,7 +29,7 @@ let init = async () => {
 				name: `shapeColor`,
 			},
 		]);
-		// run this function when the responses are done. 
+		// run this function when the responses are done.
 		await writeToFile(responses);
 	} catch (error) {
 		console.log(error, `Error`);
@@ -38,8 +39,8 @@ let init = async () => {
 
 //=== Generate file based on user inputs ===//
 function writeToFile(responses) {
-	// make file Test-README.md if there isn't one. Pass on user responses to generateMarkdown()
-	fs.writeFile(`./examples/logo.svg`, JSON.stringify(responses), (err) => err ? console.error(`Error ` + err) : console.log(`logo.svg has been successfully created!`));
+
+	fs.writeFile(`./examples/logo.svg`, getShape(responses), (err) => err ? console.error(`Error ` + err) : console.log(`logo.svg has been successfully created!`));
 }
 
 // Function call to initialize app
