@@ -1,4 +1,4 @@
-const getShape = require(`./lib/shapes`);
+const {getShape} = require("./lib/shapes");
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -40,7 +40,7 @@ let init = async () => {
 //=== Generate file based on user inputs ===//
 function writeToFile(responses) {
 
-	fs.writeFile(`./examples/logo.svg`, getShape(responses), (err) => err ? console.error(`Error ` + err) : console.log(`logo.svg has been successfully created!`));
+	fs.writeFile(`./examples/logo.svg`, getShape(responses).render(), (err) => err ? console.error(`Error ` + err) : console.log(`logo.svg has been successfully created!`));
 }
 
 // Function call to initialize app
