@@ -23,7 +23,7 @@ let init = async () => {
 				type: `list`,
 				message: `Please choose a shape`,
 				name: `shape`,
-                choices: [`circle`, `square`, `triangle`]
+                choices: [`circle`, `triangle`, `square`]
 			},
 			{
 				type: `input`,
@@ -48,7 +48,7 @@ let init = async () => {
 //=== Generate file based on user inputs ===//
 function writeToFile(responses) {
 
-	fs.writeFile(`./examples/logo.svg`, getShape(responses).render(), (err) => err ? console.error(`Error ` + err) : console.log(`logo.svg has been successfully created!`));
+	fs.writeFile(`./examples/logo.svg`, getShape(responses).render(), (err) => err ? console.error(`Error ` + err) : console.log(`Generated logo.svg`));
 }
 
 // Function call to initialize app
