@@ -1,8 +1,10 @@
-const {getShape} = require("./lib/shapes");
+//===== Imports ======//
+const { getShape } = require("./lib/shapes");
 const inquirer = require("inquirer");
 const fs = require("fs");
-const regex = /^#(?:[0-9a-fA-F]{3}){1,2}$|^(red|green|blue|white|black|orange|yellow|brown|pink|purple|grey)$/;
 
+//==== Regex look for hexadecimal or color =====//
+const regex = /^#(?:[0-9a-fA-F]{3}){1,2}$|^(red|green|blue|white|black|orange|yellow|brown|pink|purple|grey)$/;
 
 //=== Initial function ===//
 let init = async () => {
@@ -23,7 +25,7 @@ let init = async () => {
 				type: `list`,
 				message: `Please choose a shape`,
 				name: `shape`,
-                choices: [`circle`, `triangle`, `square`]
+				choices: [`circle`, `triangle`, `square`],
 			},
 			{
 				type: `input`,
@@ -34,11 +36,13 @@ let init = async () => {
 		// run this function when the responses are done.
 		if (responses.text.length > 3) {
 			console.log(`Please only enter up to 3 letters`);
+			//test regex for hexadecimal or color
 		} else if (!regex.test(responses.textColor) || !regex.test(responses.shapeColor)) {
 			console.log(`Please enter a color keyword OR a hexadecimal number`);
 		} else {
 			await writeToFile(responses);
 		}
+		// catch error
 	} catch (error) {
 		console.log(error, `Error`);
 	}
@@ -47,9 +51,9 @@ let init = async () => {
 
 //=== Generate file based on user inputs ===//
 function writeToFile(responses) {
-
-	fs.writeFile(`./examples/logo.svg`, getShape(responses).render(), (err) => err ? console.error(`Error ` + err) : console.log(`Generated logo.svg`));
+	fs.writeFile(`./examples/logo.svg`, getShape(responses).render(), (err) => (err ? console.error(`Error ` + err) : console.log(`Generated logo.svg`)));
 }
+// END
 
 // Function call to initialize app
 init();
