@@ -9,7 +9,7 @@ This program was created to make a basic shapes with a SVG file. It is able to m
 Install `npm i inquirer@8.2.4`. 
 
 ## Usage
-Run `node index.js`, answer a couple questions and the SVG file will created. Follow the [video link](https://drive.google.com/file/d/1Mawi1a35AnPfHZBIcD4bZ0cMHRKUb0Cd/view) to see it in action. URL if link doesn't work - https://drive.google.com/file/d/1Mawi1a35AnPfHZBIcD4bZ0cMHRKUb0Cd/view
+Run `node index.js`, answer a couple questions and the SVG file will created. Follow the [video link](https://drive.google.com/file/d/1lPYZDq_Jvl8Yv8yPRV-zCTXCsi-qaBGG/view) to see it in action. URL if link doesn't work - https://drive.google.com/file/d/1lPYZDq_Jvl8Yv8yPRV-zCTXCsi-qaBGG/view
 
 
 
